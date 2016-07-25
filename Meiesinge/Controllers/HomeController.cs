@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Meiesinge.Models;
 
 namespace Meiesinge.Controllers
 {
@@ -16,11 +17,18 @@ namespace Meiesinge.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        //[Authorize(Users = @"DMNJRQE\\less")]
+        public ActionResult Invite()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View("Invite");
         }
+
+        [HttpPost]
+        //[Authorize(Users = @"DMNJRQE\\less")]
+        public ActionResult Invite(InvitationViewModel model)
+        {
+            return View("Invite");
+        }
+
     }
 }
