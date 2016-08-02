@@ -1,21 +1,46 @@
 ﻿using System;
 using System.Web.Mvc;
+using Meiesinge.WebClient.DAL;
+using Meiesinge.WebClient.Models;
 
 namespace Meiesinge.WebClient.Controllers
 {
-    public class InviteeController : Controller
+    public class InvitationController : Controller
     {
-        // GET: Invitee
-        [Route("Invitee")]
-        public ActionResult Index()
+        [Route("Invitation/{guid?}")]
+        [HttpGet]
+        public ActionResult Index(Guid? guid)
         {
-            return Test(Guid.Empty);
+            var model = new InvitationViewModel {Host = "Chrigi"};
+
+            using (var context = new MeiesingeContext())
+            {
+                var invitee = context.Invitees.Find(guid);
+                if (invitee != null)
+                {
+                    model.Guid = invitee.Id;
+                    model.Invitee = invitee.InviteeName;
+                }
+            }
+            return View("Index", model);
         }
 
-        [Route("Test/{id}")]
-        public ActionResult Test(Guid? id)
+        [Route("Invitation/Accept")]
+        [HttpPost]
+        public ActionResult Accept(InvitationViewModel model)
         {
-            return View("Index",id.Value);
+            if (ModelState.IsValid)
+            {
+                using (var db = new MeiesingeContext())
+                {
+                    var entity = db.Invitees.Find(model.Guid);
+                    if (entity != null)
+                    {
+                        
+                    }
+                }
+            }
+            return View("Index", model);
         }
     }
 }

@@ -1,0 +1,37 @@
+﻿@model Meiesinge.WebClient.Models.InvitationViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div>
+    Hallo @(Model.Invitee ?? "anonymous")
+    @Model.Host hat dich eingeladen hier mitzumachen.
+
+    Du sollst Meiensingen! D.h du singst für uns.
+    Jeder Künstler braucht einen Künstlernamen. Bist du mit deinem zufrieden?
+    <input value="@(Model.Invitee ?? "anonymous")"/>
+</div>
+
+@if (Model.InvitationOk)
+{
+    <input id="btnSubmit" type="submit" value="Speichern"/>
+}
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document)
+        .ready(function() {
+            $("#btnSubmit")
+                .click(function() {
+                    $.post("Accept",
+                    { Guid: "00000000-0000-0000-0000-000000000004", Invitee: "jamann!" },
+                    function(data) {
+                        //$.get("/Meiesinge");
+                        //alert("alright!?");
+                        location.href = "/Meiesinge";
+                    });
+                });
+        });
+</script>
