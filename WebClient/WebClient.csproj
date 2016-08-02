@@ -172,7 +172,7 @@
     <Compile Include="Controllers\InviteeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeiesingeController.cs" />
-    <Compile Include="DAL\DatabaseContext.cs" />
+    <Compile Include="DAL\MeiesingeContext.cs" />
     <Compile Include="DAL\InvitationInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
