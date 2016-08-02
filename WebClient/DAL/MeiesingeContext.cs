@@ -12,6 +12,7 @@ namespace Meiesinge.WebClient.DAL
         }
 
         public DbSet<Invitee> Invitees { get; set; }
+        public DbSet<Artist> Artists { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

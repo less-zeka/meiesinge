@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-
+@Html.HiddenFor(m=>m.Guid)
 <h2>Index</h2>
 <div>
     Hallo @(Model.Invitee ?? "anonymous")
@@ -11,7 +11,7 @@
 
     Du sollst Meiensingen! D.h du singst für uns.
     Jeder Künstler braucht einen Künstlernamen. Bist du mit deinem zufrieden?
-    <input value="@(Model.Invitee ?? "anonymous")"/>
+    <input id="ArtistName" value="@(Model.Invitee ?? "anonymous")"/>
 </div>
 
 @if (Model.InvitationOk)
@@ -26,10 +26,8 @@
             $("#btnSubmit")
                 .click(function() {
                     $.post("Accept",
-                    { Guid: "00000000-0000-0000-0000-000000000004", Invitee: "jamann!" },
-                    function(data) {
-                        //$.get("/Meiesinge");
-                        //alert("alright!?");
+                    { Guid: "00000000-0000-0000-0000-000000000004", Invitee: $("#ArtistName").val() },
+                    function() {
                         location.href = "/Meiesinge";
                     });
                 });

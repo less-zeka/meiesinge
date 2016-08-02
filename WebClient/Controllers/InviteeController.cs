@@ -31,12 +31,14 @@ namespace Meiesinge.WebClient.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (var db = new MeiesingeContext())
+                using (var context = new MeiesingeContext())
                 {
-                    var entity = db.Invitees.Find(model.Guid);
+                    var entity = context.Invitees.Find(model.Guid);
                     if (entity != null)
                     {
-                        
+                        var artist = new Artist{Name = model.Invitee};
+                        context.Artists.Add(artist);
+                        context.SaveChanges();
                     }
                 }
             }
