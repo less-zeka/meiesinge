@@ -1,31 +1,37 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Meiesinge";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Meiesinge</h1>
+    <p class="lead">Meiesinge ist was es immer war.</p>
+    <p>
+        @Html.ActionLink("Erfahre Mehr \u00BB", "About", "Home", null, new { @class = "btn btn-primary btn-lg" })
+    </p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Du wurdest eingeladen?</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Meiesinge kann man nur auf Einladung und du hast eine? Fantastisch! Na dann los!
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p>
+            @Html.ActionLink("Erfahre Mehr \u00BB", "Invitee", "Home", null, new { @class = "btn btn-default" })
+        </p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Du wurdest NICHT eingeladen?</h2>
+        <p>Schade! Aber noch ist ja nicht aller Tage Abend.</p>
+        <p>
+            @Html.ActionLink("Erfahre Mehr \u00BB", "TODO", "Home", null, new { @class = "btn btn-default" })
+        </p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Spenden</h2>
+        <p>Du willst spenden oder am Projekt mitmachen?</p>
+        <p>
+            @Html.ActionLink("Erfahre Mehr \u00BB", "TODO", "Home", null, new { @class = "btn btn-default" })
+        </p>
     </div>
 </div>
